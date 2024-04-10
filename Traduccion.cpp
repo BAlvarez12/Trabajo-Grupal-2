@@ -1,9 +1,8 @@
 #include <iostream>
-
-
+#include <string>
+#include <sstream>
 
 using namespace std; 
-
 
 
 const char *nombre_archivo;
@@ -30,35 +29,19 @@ struct Palabras{
 	      	cin>>opcion;
 	    switch (opcion){
 	    	
-	    /*	case 1:
+	    	case 1:{
+			
 	    		
-				cout<<"_____Abriendo Archivo_______"<<endl;
-				cout<<"Archivos disponibles en la carpeta actual:"<<endl;
-				int id = 0;
+	    		string nom;
 				
-				for(const auto&entry : fs::directory_iterator(".")){
-        		if(entry.is_regular_file()){
-            	cout<<id<<". "<<entry.path().filename()<<endl;
-            	id++;
-            }
-        }
-
-   				int seleccion;
-			    cout<<"Ingrese el numero del archivo que desea seleccionar: ";
-			    cin>>seleccion;
-				id=0;
-			    for(const auto& entry : fs::directory_iterator(".")) {
-			        if(entry.is_regular_file()) {
-			            if(id == seleccion) {
-			                cout<<"A seleccionado el archivo: "<<entry.path().filename()<<endl;
-			                break;
-            }	
-            	
-            	
-            	
-			 	leer();
-			 	return 0;*/
-			 	
+				cout<<"_____Abriendo Archivo_______"<<endl;
+				cout<<"Coloca el nombre exacto del archivo y extencion .dat:"<<endl;
+            	cin>>nom;
+            	nombre_archivo = nom.c_str();
+            	leer();
+			 	return 0;
+			
+		}
 			case 2:
 			
 				string nombre;	
@@ -121,7 +104,7 @@ struct Palabras{
 						cin.getline(palabra.traduccion,50);
 						
 					cout<<"Ingrese su funcionalidad:";
-						cin>>palabra.funcionalidad,50;
+						cin.getline(palabra.funcionalidad,100);
 						
 					fwrite(&palabra,sizeof(Palabras),1,archivo);
 						
