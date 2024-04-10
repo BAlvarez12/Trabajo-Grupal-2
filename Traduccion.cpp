@@ -1,5 +1,9 @@
 #include <iostream>
+
+
+
 using namespace std; 
+
 
 
 const char *nombre_archivo;
@@ -15,7 +19,7 @@ struct Palabras{
 
 	// Estructura para llamar los VOID Bryann
 	void leer();
-		void crear();
+	void crear();
 
 	main (){
 		
@@ -26,12 +30,35 @@ struct Palabras{
 	      	cin>>opcion;
 	    switch (opcion){
 	    	
-	    	case 1:
+	    /*	case 1:
+	    		
 				cout<<"_____Abriendo Archivo_______"<<endl;
 				cout<<"Archivos disponibles en la carpeta actual:"<<endl;
+				int id = 0;
 				
+				for(const auto&entry : fs::directory_iterator(".")){
+        		if(entry.is_regular_file()){
+            	cout<<id<<". "<<entry.path().filename()<<endl;
+            	id++;
+            }
+        }
+
+   				int seleccion;
+			    cout<<"Ingrese el numero del archivo que desea seleccionar: ";
+			    cin>>seleccion;
+				id=0;
+			    for(const auto& entry : fs::directory_iterator(".")) {
+			        if(entry.is_regular_file()) {
+			            if(id == seleccion) {
+			                cout<<"A seleccionado el archivo: "<<entry.path().filename()<<endl;
+			                break;
+            }	
+            	
+            	
+            	
 			 	leer();
-			 	return 0;
+			 	return 0;*/
+			 	
 			case 2:
 			
 				string nombre;	
@@ -39,6 +66,7 @@ struct Palabras{
 				cout<<"_____Crear Archivo_______"<<endl;
 				cout<<"Que nombre le colocara al archivo: ";
 				cin>>nombre;
+				nombre += ".dat";
 				nombre_archivo = nombre.c_str();
 			 	crear();
 			 	return 0;
@@ -70,6 +98,7 @@ struct Palabras{
 	}
 	void crear(){  //Crear archivo
 		FILE* archivo= fopen(nombre_archivo,"a+b");
+		
 			char res;
 			cout<<"  "<<endl;
 			cout<<"Ingrese los datos del archivo"<<endl;
