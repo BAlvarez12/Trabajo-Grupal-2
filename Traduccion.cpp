@@ -19,6 +19,7 @@ struct Palabras{
 	// Estructura para llamar los VOID Bryann
 	void leer();
 	void crear();
+	void actualizar ();
 
 	main (){
 		
@@ -116,3 +117,27 @@ struct Palabras{
 							leer();
 	
 	}
+	void Actualizar () { //Actualizar el archivo Cristian
+		FILE* archivo = fopen(nombre_archivo,"r+b");
+		char res;
+		Palabras palabras;
+		int id =0;
+		cout<<"Ingrese el ID que desea Modificar: ";
+			cin>>id;
+		fseek (archivo, id * sizeof(Palabras),SEEK_SET);
+		cout<<"Ingrese Codigo:";
+			cin>>palabras.codigo;
+			cin.ignore();
+		cout<<"Ingrese el nombre de la palabra:";
+			cin.getline(palabras.nombre,50);
+		cout<<"Ingrese la traduccion:";
+			cin.getline(palabras.traduccion,50);
+		
+		cout<<"Ingrese la funcionalidad:";
+			cin>>palabras.funcionalidad;
+		
+		fwrite (&palabras,sizeof(Palabras),1,archivo);
+	
+			fclose(archivo);
+			Leer();
+}
