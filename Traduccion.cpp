@@ -88,22 +88,6 @@ struct Palabras{
 	        	return 0;
 	        	
 			}
-			
-			case 6:{
-		
-				 unordered_map<string, string> diccionario = cargarDiccionario();
-
-				    string codigoCpp;
-				    cout << "Ingrese el codigo C++ a traducir:" << endl;
-				    getline(cin, codigoCpp);
-				
-				    string codigoTraducido = traducirCodigo(codigoCpp, diccionario);
-				
-				    cout << "El código traducido es:" << endl;
-				    cout << codigoTraducido << endl;
-				
-				    return 0;
-			}
 	    }
 	}while (opcion != 5);
 	        		
