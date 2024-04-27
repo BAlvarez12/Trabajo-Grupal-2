@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <unordered_map>
 #include <sstream>
 
 using namespace std; 
@@ -87,7 +85,7 @@ struct Palabras{
 		
 		
 	}
-	void crear(){  //Crear archivo
+	void crear(){  //Crear archivo Bryann
 		FILE* archivo= fopen(nombre_archivo,"a+b");
 		
 			char res;
