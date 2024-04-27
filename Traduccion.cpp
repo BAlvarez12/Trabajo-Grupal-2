@@ -24,19 +24,6 @@ struct Palabras{
 	void actualizar ();
 	void borrar ();
 	
-    string traducirCodigo(const string& codigo, const unordered_map<string, string>& diccionario) {
-     string codigoTraducido = codigo;
-     for (const auto& par : diccionario) {
-        size_t pos = 0;
-        while ((pos = codigoTraducido.find(par.first, pos)) != string::npos) {
-            codigoTraducido.replace(pos, par.first.length(), par.second);
-            pos += par.second.length();
-        }
-    }
-    return codigoTraducido;
-}
-
-	
 
 	main (){
 			int opcion;
