@@ -183,7 +183,7 @@ struct Palabras{
 	leer();
 }
 
-	void borrar(){
+	void borrar(){// Creado por Dary
 		leer();
 		const char * nombre_archivo_temp = "archivo_temp.dat";
 		FILE* archivo= fopen(nombre_archivo,"rb");
