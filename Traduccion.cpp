@@ -93,7 +93,7 @@ struct Palabras{
 	        		
 		system("pause");
 	}
-	void leer(){  // Leer el archivo Traduccion
+	void leer(){  // Leer el archivo Traduccion Bryann
 		system("cls");
 			FILE* archivo= fopen(nombre_archivo,"rb");
 				if(!archivo){
