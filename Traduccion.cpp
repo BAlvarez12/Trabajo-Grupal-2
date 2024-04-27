@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <unordered_map>
 #include <sstream>
 
 using namespace std; 
@@ -12,7 +14,7 @@ struct Palabras{
 	int codigo;
 		char nombre[50];
 			char traduccion[50];
-				char funcionalidad[100];
+				char funcionalidad[1000];
 	
 	};
 
@@ -20,14 +22,44 @@ struct Palabras{
 	void leer();
 	void crear();
 	void actualizar ();
+	void borrar ();
+	
+	unordered_map<string, string> cargarDiccionario() {
+    unordered_map<string, string> diccionario;
+    ifstream archivo("Palabras.dat");
+    string clave, valor;
+    while (archivo >> clave >> valor) {
+        diccionario[clave] = valor;
+    }
+    archivo.close();
+    return diccionario;
+}
+    string traducirCodigo(const string& codigo, const unordered_map<string, string>& diccionario) {
+     string codigoTraducido = codigo;
+     for (const auto& par : diccionario) {
+        size_t pos = 0;
+        while ((pos = codigoTraducido.find(par.first, pos)) != string::npos) {
+            codigoTraducido.replace(pos, par.first.length(), par.second);
+            pos += par.second.length();
+        }
+    }
+    return codigoTraducido;
+}
+
+	
 
 	main (){
+			int opcion;
+		do{
 		
-		int opcion;
+	
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
 	      cout<<"2.Crear Archivo"<<endl;
-	      	cin>>opcion;
+	      	cout<<"3.Actualizar datos del Archivo"<<endl;
+	      	  cout<<"4.Borrar datos del Archivo"<<endl;
+	      	   cout<<"5.Salir"<<endl;
+	      		cin>>opcion;
 	    switch (opcion){
 	    	
 	    	case 1:{
@@ -43,7 +75,8 @@ struct Palabras{
 			 	return 0;
 			
 		}
-			case 2:
+			case 2:{
+		
 			
 				string nombre;	
 				
@@ -55,11 +88,50 @@ struct Palabras{
 			 	crear();
 			 	return 0;
 		}	
-	  
+			case 3:{
+				
+				string nombre;
+				
+				cout<<"____Actualizar Archivos_____"<<endl;
+				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
+				cin>>nombre;
+				nombre_archivo = nombre.c_str();
+			 	actualizar();
+			 	return 0;
+			
+		}
+	        case 4:{
+	        	
+	        	string nom;
+	        	cout<<"_____Borrar Archivo____"<<endl;
+	        	cout<<"Coloca el nombre exacto del archivo y extencion .dat: "<<endl;
+	        	cin>>nom;
+	        	nombre_archivo = nom.c_str();
+	        	borrar();
+	        	return 0;
+	        	
+			}
+			
+			case 6:{
 		
-		system("pause");
-    }
+				 unordered_map<string, string> diccionario = cargarDiccionario();
 
+				    string codigoCpp;
+				    cout << "Ingrese el codigo C++ a traducir:" << endl;
+				    getline(cin, codigoCpp);
+				
+				    string codigoTraducido = traducirCodigo(codigoCpp, diccionario);
+				
+				    cout << "El código traducido es:" << endl;
+				    cout << codigoTraducido << endl;
+				
+				    return 0;
+			}
+	    }
+	}while (opcion != 5);
+	        		
+		system("pause");
+	}
 	void leer(){  // Leer el archivo Traduccion
 		system("cls");
 			FILE* archivo= fopen(nombre_archivo,"rb");
@@ -72,7 +144,7 @@ struct Palabras{
 						cout<<"________________________________"<<endl;
 							cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<<endl;
 				do{
-					cout<<id<<"|"<<palabra.codigo<<"|"<<palabra.nombre<<"|"<<palabra.traduccion<<"|"<<palabra.funcionalidad<<endl;
+					cout<<id<<" |"<<palabra.codigo<<"     |"<<palabra.nombre<<"      |"<<palabra.traduccion<<"     |"<<palabra.funcionalidad<<endl;
 						fread(&palabra,sizeof(Palabras),1,archivo);
 							id+=1;
 								}while(feof(archivo)==0);
@@ -105,7 +177,7 @@ struct Palabras{
 						cin.getline(palabra.traduccion,50);
 						
 					cout<<"Ingrese su funcionalidad:";
-						cin.getline(palabra.funcionalidad,100);
+						cin.getline(palabra.funcionalidad,1000);
 						
 					fwrite(&palabra,sizeof(Palabras),1,archivo);
 						
@@ -117,27 +189,66 @@ struct Palabras{
 							leer();
 	
 	}
-	void Actualizar () { //Actualizar el archivo Cristian
-		FILE* archivo = fopen(nombre_archivo,"r+b");
-		char res;
-		Palabras palabras;
-		int id =0;
-		cout<<"Ingrese el ID que desea Modificar: ";
-			cin>>id;
-		fseek (archivo, id * sizeof(Palabras),SEEK_SET);
-		cout<<"Ingrese Codigo:";
-			cin>>palabras.codigo;
-			cin.ignore();
-		cout<<"Ingrese el nombre de la palabra:";
-			cin.getline(palabras.nombre,50);
-		cout<<"Ingrese la traduccion:";
-			cin.getline(palabras.traduccion,50);
+	void actualizar(){
+	char res;	
+
 		
-		cout<<"Ingrese la funcionalidad:";
-			cin>>palabras.funcionalidad;
+		leer();
+		FILE* archivo= fopen(nombre_archivo,"r+b");
+	Palabras palabra;
+	int id=0;
+		do{	
+	cout<<"Ingrese el ID que desea modificar:";
+	cin>>id;
+	fseek(archivo,id * sizeof(Palabras),SEEK_SET);
 		
-		fwrite (&palabras,sizeof(Palabras),1,archivo);
-	
-			fclose(archivo);
-			Leer();
+		cout<<"Ingrese codigo:";
+		cin>>palabra.codigo;
+		cin.ignore();
+		
+		cout<<"Ingrese Nombre:";
+		cin.getline(palabra.nombre,50);
+		
+		cout<<"Ingrese Traduccion:";
+		cin.getline(palabra.traduccion,50);
+		
+		cout<<"Ingrese Funcionalidad:";
+		cin.getline(palabra.funcionalidad,1000);
+		fwrite(&palabra,sizeof(Palabras),1,archivo);
+		cout<<"Desea Ingresar otra palabra? S/N:";
+		cin>>res;
+		}while(res== 's'|| res == 'S');
+	fclose(archivo);
+	leer();
 }
+
+	void borrar(){
+		leer();
+		const char * nombre_archivo_temp = "archivo_temp.dat";
+		FILE* archivo= fopen(nombre_archivo,"rb");
+		FILE* archivo_temp= fopen(nombre_archivo_temp,"w+b");
+		Palabras palabra;
+		int id=0,id_n=0;
+		cout<<"Ingrese el ID que desea borar:";
+		cin>>id;
+		while(fread(&palabra,sizeof(Palabras),1,archivo)){
+			if(id_n!= id){
+				fwrite(&palabra,sizeof(Palabras),1,archivo_temp);
+			}
+			id_n++;
+		}
+		
+		fclose(archivo);
+		fclose(archivo_temp);
+		
+		archivo_temp= fopen(nombre_archivo_temp,"rb");
+		archivo= fopen(nombre_archivo,"wb");
+		
+	    while(fread(&palabra,sizeof(Palabras),1,archivo_temp)){
+	    	fwrite(&palabra,sizeof(Palabras),1,archivo);
+	}
+		fclose(archivo);
+		fclose(archivo_temp);
+		leer();
+	}
+
