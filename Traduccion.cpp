@@ -24,16 +24,6 @@ struct Palabras{
 	void actualizar ();
 	void borrar ();
 	
-	unordered_map<string, string> cargarDiccionario() {
-    unordered_map<string, string> diccionario;
-    ifstream archivo("Palabras.dat");
-    string clave, valor;
-    while (archivo >> clave >> valor) {
-        diccionario[clave] = valor;
-    }
-    archivo.close();
-    return diccionario;
-}
     string traducirCodigo(const string& codigo, const unordered_map<string, string>& diccionario) {
      string codigoTraducido = codigo;
      for (const auto& par : diccionario) {
