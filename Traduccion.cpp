@@ -26,7 +26,7 @@ struct Palabras{
 
 	main (){
 			int opcion;
-		
+		do{
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
 	      cout<<"2.Crear Archivo"<<endl;
@@ -63,7 +63,7 @@ struct Palabras{
 			 	return 0;
 		}	
 	    }
-
+     }	while (opcion != 5);
 	        		
 		system("pause");
 	}
