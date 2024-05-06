@@ -7,8 +7,8 @@ using namespace std;
 
 const char *nombre_archivo;
 
-// Estructura del archivo (Columnas)
-struct Palabras{
+
+struct Palabras{ // Estructura de las palabras
 	int codigo;
 		char nombre[50];
 			char traduccion[50];
@@ -16,15 +16,18 @@ struct Palabras{
 	
 	};
 
-	// Estructura para llamar los VOID Bryann
+
 	void leer();
 	void crear();
-
+	void actualizar ();
+	void borrar ();
 	
 
 	main (){
 			int opcion;
 		do{
+		// switch para poder tener opciones multiples
+	
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
 	      cout<<"2.Crear Archivo"<<endl;
@@ -60,66 +63,31 @@ struct Palabras{
 			 	crear();
 			 	return 0;
 		}	
+			case 3:{
+				
+				string nombre;
+				
+				cout<<"____Actualizar Archivos_____"<<endl;
+				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
+				cin>>nombre;
+				nombre_archivo = nombre.c_str();
+			 	actualizar();
+			 	return 0;
+			
+		}
+	        case 4:{
+	        	
+	        	string nom;
+	        	cout<<"_____Borrar Archivo____"<<endl;
+	        	cout<<"Coloca el nombre exacto del archivo y extencion .dat: "<<endl;
+	        	cin>>nom;
+	        	nombre_archivo = nom.c_str();
+	        	borrar();
+	        	return 0;
+	        	
+			}
 	    }
-     }	while (opcion != 5);
+	}while (opcion != 5);
 	        		
 		system("pause");
 	}
-	void leer(){  // Leer el archivo Traduccion Bryann
-		system("cls");
-			FILE* archivo= fopen(nombre_archivo,"rb");
-				if(!archivo){
-					archivo= fopen(nombre_archivo,"w+b");
-			}
-			Palabras palabra;
-				int id=0;
-					fread(&palabra,sizeof(Palabras),1,archivo);
-						cout<<"________________________________"<<endl;
-							cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<<endl;
-				do{
-					cout<<id<<" |"<<palabra.codigo<<"     |"<<palabra.nombre<<"      |"<<palabra.traduccion<<"     |"<<palabra.funcionalidad<<endl;
-						fread(&palabra,sizeof(Palabras),1,archivo);
-							id+=1;
-								}while(feof(archivo)==0);
-									fclose(archivo);
-		
-		
-	}
-	void crear(){  //Crear archivo Bryann
-		FILE* archivo= fopen(nombre_archivo,"a+b");
-		
-			char res;
-			cout<<"  "<<endl;
-			cout<<"Ingrese los datos del archivo"<<endl;
-			cout<<"  "<<endl;
-			
-				Palabras palabra;
-				
-				do{
-		
-					fflush(stdin);
-		
-					cout<<"Ingrese codigo:";
-						cin>>palabra.codigo;
-							cin.ignore();
-						
-					cout<<"Ingrese el nombre de la palabra:";
-						cin.getline(palabra.nombre,50);
-						
-					cout<<"Ingrese la traduccion:";
-						cin.getline(palabra.traduccion,50);
-						
-					cout<<"Ingrese su funcionalidad:";
-						cin.getline(palabra.funcionalidad,1000);
-						
-					fwrite(&palabra,sizeof(Palabras),1,archivo);
-						
-					cout<<"Desea Ingresar otra palabra? S/N:";
-						cin>>res;
-						
-					}while(res== 's'|| res == 'S');
-						fclose(archivo);
-							leer();
-	
-	}
-
