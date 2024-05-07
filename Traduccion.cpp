@@ -101,3 +101,23 @@ struct Palabras{ // Estructura de las palabras
 		         
 			        int id = 0;
 			        while (fgets(linea, sizeof(linea), archivo)) {
+			        	
+			        // Dividir la línea usando el delimitador "|"
+		            stringstream ss(linea);
+		            string token;
+		            int contador =0;
+		            while(getline(ss, token,'|')){
+		                if(contador ==0){
+		                    cout<<id++<<"|";
+		                }
+		                cout<<token<<"|"; 
+		                contador++;
+		            }
+		            cout << endl;
+		        }
+
+		        fclose(archivo);
+		    } else {
+		        cerr << "No se pudo abrir el archivo." << endl;
+		    }
+}
