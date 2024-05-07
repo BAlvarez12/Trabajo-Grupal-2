@@ -109,11 +109,6 @@ struct Palabras{ // Estructura de las palabras
 			        char linea[1200]; //tamano para leer una linea de codigo
 			        int id = 0;
 			        while (fgets(linea, sizeof, archivo)) {
-        	
-		            // Dividir la línea usando el delimitador "|"
-		            stringstream ss(linea);
-		            string token;
-		            int contador =0;
 		            }
 		            cout << endl;
 		        }
