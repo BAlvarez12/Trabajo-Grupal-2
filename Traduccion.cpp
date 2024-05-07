@@ -93,23 +93,7 @@ struct Palabras{ // Estructura de las palabras
 	}
 	
 	
-		void leer() {
-    
-    		system("cls");
-    			FILE* archivo = fopen(nombre_archivo, "r");
-   					 if (!archivo) {
-        				archivo = fopen();
-    }
-
-		    if (archivo) {
+		if (archivo) {
 		        cout<<"________________________________"<<endl;
 		        cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<< endl;
 		        cout<<"________________________________" << endl;
-
-		        }
-
-		        fclose(archivo);
-		    } else {
-		        cerr << "No se pudo abrir el archivo." << endl;
-		    }
-}
