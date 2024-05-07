@@ -97,7 +97,7 @@ struct Palabras{ // Estructura de las palabras
     
     		system("cls");
     			FILE* archivo = fopen(nombre_archivo, "r");
-   					 if (!archivo) {
+   					 if (archivo) {
         				archivo = fopen(nombre_archivo, "w+b");
     }
 
