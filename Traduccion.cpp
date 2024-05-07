@@ -91,3 +91,41 @@ struct Palabras{ // Estructura de las palabras
 	        		
 		system("pause");
 	}
+	
+	
+		void leer() {
+    
+    		system("cls");
+    			FILE* archivo = fopen(nombre_archivo, "r");
+   					 if (!archivo) {
+        				archivo = fopen(nombre_archivo, "a+b");
+    }
+
+		    if (archivo) {
+		        cout<<"________________________________"<<endl;
+		        cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<< endl;
+		        cout<<"________________________________" << endl;
+
+			        char linea[1200]; //tamano para leer una linea de codigo
+			        int id = 0;
+			        while (fgets(linea, sizeof(linea), archivo)) {
+        	
+		            // Dividir la línea usando el delimitador "|"
+		            stringstream ss(linea);
+		            string token;
+		            int contador =0;
+		            while(getline(ss, token,'|')){
+		                if(contador ==0){
+		                    cout<<id++<<"|";
+		                }
+		                cout<<token<<"|"; 
+		                contador++;
+		            }
+		            cout << endl;
+		        }
+
+		        fclose(archivo);
+		    } else {
+		        cerr << "No se pudo abrir el archivo." << endl;
+		    }
+}
