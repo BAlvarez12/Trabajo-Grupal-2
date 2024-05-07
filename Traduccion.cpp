@@ -106,11 +106,6 @@ struct Palabras{ // Estructura de las palabras
 		        cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<< endl;
 		        cout<<"________________________________" << endl;
 
-			        char linea[]; //tamano para leer una linea de codigo
-			        int id = 0;
-			        while (fgets(linea, sizeof, archivo)) {
-		            }
-		            cout << endl;
 		        }
 
 		        fclose(archivo);
