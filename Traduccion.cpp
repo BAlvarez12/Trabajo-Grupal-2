@@ -98,7 +98,7 @@ struct Palabras{ // Estructura de las palabras
     		system("cls");
     			FILE* archivo = fopen(nombre_archivo, "r");
    					 if (!archivo) {
-        				archivo = fopen;
+        				archivo = fopen(nombre_archivo, "w+b");
     }
 
 		    if (archivo) {
@@ -108,7 +108,7 @@ struct Palabras{ // Estructura de las palabras
 
 			        char linea[1200]; //tamano para leer una linea de codigo
 			        int id = 0;
-			        while (fgets(linea, sizeof(linea), archivo)) {
+			        while (fgets(linea, sizeof, archivo)) {
         	
 		            // Dividir la línea usando el delimitador "|"
 		            stringstream ss(linea);
