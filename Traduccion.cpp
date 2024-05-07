@@ -114,12 +114,6 @@ struct Palabras{ // Estructura de las palabras
 		            stringstream ss(linea);
 		            string token;
 		            int contador =0;
-		            while(getline(ss, token,'|')){
-		                if(contador ==0){
-		                    cout<<id++<<"|";
-		                }
-		                cout<<token<<"|"; 
-		                contador++;
 		            }
 		            cout << endl;
 		        }
