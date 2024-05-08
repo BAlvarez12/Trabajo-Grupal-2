@@ -162,7 +162,7 @@ void crear(){
 					cout<<"Desea Ingresar otra palabra? S/N:";
 						cin>>res;
 						
-					}while(res== 's'||res=='S');
+					}while(res== 's'||res='S');
 						fclose(archivo);
 							leer();
 	
