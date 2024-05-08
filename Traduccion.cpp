@@ -30,8 +30,7 @@ struct Palabras{ // Estructura de las palabras
 	
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
-	      cout<<"2.Crear Archivo"<<endl;
-	      	cout<<"3.Actualizar datos del Archivo"<<endl;
+	      
 	      	  cout<<"4.Borrar datos del Archivo"<<endl;
 	      	   cout<<"5.Salir"<<endl;
 	      		cin>>opcion;
