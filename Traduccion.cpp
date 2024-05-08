@@ -163,4 +163,5 @@ void crear(){
 						cin>>res;
 						
 					}while(res== 's'||res=='S');
-						leer();
+						fclose(archivo);
+							leer(); 
