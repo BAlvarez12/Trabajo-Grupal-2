@@ -69,7 +69,7 @@ struct Palabras{ // Estructura de las palabras
 				
 				cout<<"____Actualizar archivo____:"<<endl;
 				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
-				cin>>nombre:
+				cin>>nombre;
 				nombre_archivo = nombre.c_str();
 			 	actualizar();
 			 	return 0;
