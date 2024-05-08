@@ -43,7 +43,7 @@ struct Palabras{ // Estructura de las palabras
 	    		string nom;
 				
 				cout<<"_____Abriendo Archivo_______"<<endl;
-				cout<<"Coloca el nombre exacto del archivo y extencion .dat:"<<endl;
+				cout<<"Coloca el nombre exacto del archivo y extension .dat:"<<endl;
             	cin>>nom;
             	nombre_archivo = nom.c_str();
             	leer();
@@ -68,7 +68,7 @@ struct Palabras{ // Estructura de las palabras
 				string nombre;
 				
 				cout<<"____Actualizar archivo____:"<<endl;
-				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
+				cout<<"Coloca el nombre exacto del archivo y extension .dat:  "<<endl;
 				cin>>nombre;
 				nombre_archivo = nombre.c_str();
 			 	actualizar();
@@ -79,7 +79,7 @@ struct Palabras{ // Estructura de las palabras
 	        	
 	        	string nom;
 	        	cout<<"_____Borrar Archivo____"<<endl;
-	        	cout<<"Coloca el nombre exacto del archivo y extencion .dat: "<<endl;
+	        	cout<<"Coloca el nombre exacto del archivo y extension .dat: "<<endl;
 	        	cin>>nom;
 	        	nombre_archivo = nom.c_str();
 	        	borrar();
@@ -156,12 +156,12 @@ void crear(){
 					cout<<"Ingrese su funcionalidad:";
 						cin.getline(palabra.funcionalidad,1000);
 						
-					cout<<"Desea Ingresar otra palabra? S/N:";
+				 	 string linea = to_string(palabra.codigo) + "|" + palabra.nombre + "|" + palabra.traduccion + "|" + (palabra.funcionalidad)+ "\n";
+          			fwrite(linea.c_str(), sizeof(char),linea.size(),archivo)
+						
+					cout<<"Desea Ingresar otra palabra? s/n:";
 						cin>>res;
 						
 					}while(res== 's'||res=='S');
 						fclose(archivo);
 							leer();
-	
-	} 
-							
