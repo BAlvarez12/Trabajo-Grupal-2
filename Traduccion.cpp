@@ -156,9 +156,6 @@ void crear(){
 					cout<<"Ingrese su funcionalidad:";
 						cin.getline(palabra.funcionalidad,1000);
 						
-				 	 string linea = to_string(palabra.codigo) + "|" + palabra.nombre + "|" + palabra.traduccion + "|" + (palabra.funcionalidad)+ "\n";
-          			fwrite(linea.c_str(), sizeof(char),linea.size(),archivo);
-						
 					cout<<"Desea Ingresar otra palabra? S/N:";
 						cin>>res;
 						
