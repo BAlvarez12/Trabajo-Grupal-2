@@ -145,7 +145,7 @@ void crear(){
 		
 					cout<<"Ingrese codigo:";
 						cin>>palabra.codigo;
-							cin.ignore();
+							cin.ignore(); 
 						
 					cout<<"Ingrese el nombre de la palabra:";
 						cin.getline(palabra.nombre,50);
@@ -154,14 +154,14 @@ void crear(){
 						cin.getline(palabra.traduccion,50);
 						
 					cout<<"Ingrese su funcionalidad:";
-						cin.getline(palabra.funcionalidad,100);
+						cin.getline(palabra.funcionalidad,1000);
 						
-				 	 string linea = to_string(palabra.codigo) + "|" + palabra.nombre + "|" + palabra.traduccion + "|" + (palabra.funcionalidad)+ "\n";
-          			fwrite (linea.c_str(), sizeof(char),linea.size(),archivo);
+				 	 string linea = to_string(palabra.codigo) + "|" + palabra.nombre + "|" + palabra.traduccion + "|" + (palabra.funcionalidad) "\n";
+          			fwrite(linea.c_str(), sizeof(char),linea.size(),archivo);
 						
 					cout<<"Desea Ingresar otra palabra? S/N:";
 						cin>>res;
-						
+						 
 					}while(res== 's'||res=='S');
 						fclose(archivo);
 							leer(); 
