@@ -16,7 +16,7 @@ struct Palabras{ // Estructura de las palabras
 	
 	};
 
-
+// metodo CRUD 
 	void leer();
 	void crear();
 	void actualizar ();
@@ -109,7 +109,7 @@ struct Palabras{ // Estructura de las palabras
 			        int id = 0;
 			        while (fgets(linea, sizeof(linea), archivo)) {
         	
-		            // Dividir la línea usando el delimitador "|"
+		            // Dividir la lÃ­nea usando el delimitador "|"
 		            stringstream ss(linea);
 		            string token;
 		            int contador =0;
