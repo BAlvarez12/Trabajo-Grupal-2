@@ -30,7 +30,8 @@ struct Palabras{ // Estructura de las palabras
 	
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
-	      
+	      cout<<"2.Crear Archivo"<<endl;
+	      	cout<<"3.Actualizar datos del Archivo"<<endl;
 	      	  cout<<"4.Borrar datos del Archivo"<<endl;
 	      	   cout<<"5.Salir"<<endl;
 	      		cin>>opcion;
@@ -52,37 +53,7 @@ struct Palabras{ // Estructura de las palabras
 			case 2:{
 		
 			
-				string nombre;	
 				
-				cout<<"_____Crear Archivo_______"<<endl;
-				cout<<"Que nombre le colocara al archivo: ";
-				cin>>nombre;
-				nombre += ".dat";
-				nombre_archivo = nombre.c_str();
-			 	crear();
-			 	return 0;
-		}	
-			case 3:{
-				
-				string nombre;
-				
-				cout<<"____Actualizar archivo_______"<<endl;
-				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
-				cin>>nombre;
-				nombre_archivo = nombre.c_str();
-			 	actualizar();
-			 	return 0;
-			
-		}
-	        case 4:{
-	        	
-	        	string nom;
-	        	cout<<"_____Borrar Archivo____"<<endl;
-	        	cout<<"Coloca el nombre exacto del archivo y extencion .dat: "<<endl;
-	        	cin>>nom;
-	        	nombre_archivo = nom.c_str();
-	        	borrar();
-	        	return 0;
 	        	
 			}
 	    }
