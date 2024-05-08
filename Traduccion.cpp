@@ -145,7 +145,7 @@ void crear(){
 		
 					cout<<"Ingrese codigo:";
 						cin>>palabra.codigo;
-							
+							cin.ignore();
 						
 					cout<<"Ingrese el nombre de la palabra:";
 						cin.getline(palabra.nombre,50);
