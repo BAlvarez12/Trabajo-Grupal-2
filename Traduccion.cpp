@@ -80,7 +80,7 @@ struct Palabras{ // Estructura de las palabras
 	        	string nom;
 	        	cout<<"_____Borrar Archivo____"<<endl;
 	        	cout<<"Coloca el nombre exacto del archivo y extencion .dat: "<<endl;
-	        	cin>>nom;
+	        
 	        	nombre_archivo = nom.c_str();
 	        	borrar();
 	        	return 0;
