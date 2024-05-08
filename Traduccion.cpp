@@ -164,4 +164,7 @@ void crear(){
 						
 					}while(res== 's'||res=='S');
 						fclose(archivo);
-							leer(); 
+							leer();
+	
+	} 
+							
