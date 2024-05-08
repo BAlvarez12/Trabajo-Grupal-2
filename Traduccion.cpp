@@ -129,4 +129,39 @@ struct Palabras{ // Estructura de las palabras
 		    }
 }	
 
-//prueba
+void crear(){  
+		FILE* archivo= fopen(nombre_archivo,"a+b");
+		
+			char res;
+			cout<<"  "<<endl;
+			cout<<"Ingrese los datos del archivo"<<endl;
+			cout<<"  "<<endl;
+			
+				Palabras palabra;
+				
+				do{
+		
+					fflush(stdin);
+		
+					cout<<"Ingrese codigo:";
+						cin>>palabra.codigo;
+							
+						
+					cout<<"Ingrese el nombre de la palabra:";
+						cin.getline(palabra.nombre,50);
+						
+					cout<<"Ingrese la traduccion:";
+						cin.getline(palabra.traduccion,50);
+						
+					cout<<"Ingrese su funcionalidad:";
+						cin.getline(palabra.funcionalidad,1000);
+						
+				 	 string linea = to_string(palabra.codigo) + "|" + palabra.nombre + "|" + palabra.traduccion + "|" + (palabra.funcionalidad)+ "\n";
+          			  fwrite(linea.c_str(), sizeof(char),linea.size(),archivo);
+						
+					cout<<"Desea Ingresar otra palabra? S/N:";
+						cin>>res;
+						
+					}while(res== 's'||res=='S');
+						fclose(archivo);
+							leer();
