@@ -171,7 +171,7 @@ struct Palabras{ // Estructura de las palabras
 // opcion BORRAR  
 
 void borrar() {
-    	// Abre el archivo en modo de lectura y escritura
+    	// abrir el archivo 
     	FILE* archivo = fopen(nombre_archivo, "r+b");
    	 if (!archivo) {
        	 cerr << "No se pudo abrir el archivo." << endl;
@@ -182,7 +182,8 @@ void borrar() {
 		int codigo_a_borrar;
    		 cout << "Ingrese el código de la palabra que desea borrar: ";
     		cin >> codigo_a_borrar;
-		
+
+	 // cerrar el archivo 
 	    if (encontrado) {
 	        cout << "La palabra fue eliminada" << endl;
 	    } else {
