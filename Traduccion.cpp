@@ -171,7 +171,7 @@ struct Palabras{ // Estructura de las palabras
 // opcion BORRAR  
 
 void borrar() {
-    	// abrir el archivo 
+    // Abre el archivo en modo de escritura, lo que esencialmente borra todo el contenido
     	FILE* archivo = fopen(nombre_archivo, "r+b");
    	 if (!archivo) {
        	 cerr << "No se pudo abrir el archivo." << endl;
