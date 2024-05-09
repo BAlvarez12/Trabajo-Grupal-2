@@ -175,5 +175,6 @@ void borrar() {
 		FILE* archivo = fopen(nombre_archivo, "w");
 			if (archivo) {
 				 fclose(archivo);
+				cout << "Archivo borrado exitosamente." << endl;}
 	
 }
