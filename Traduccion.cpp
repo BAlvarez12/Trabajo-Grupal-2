@@ -177,7 +177,12 @@ void borrar() {
        	 cerr << "No se pudo abrir el archivo." << endl;
        	 return;
 	    }
-	
+
+		// Definicion de variable para almacenar el codigo que se va a eliminar 
+		int codigo_a_borrar;
+   		 cout << "Ingrese el código de la palabra que desea borrar: ";
+    		cin >> codigo_a_borrar;
+		
 	    if (encontrado) {
 	        cout << "La palabra fue eliminada" << endl;
 	    } else {
