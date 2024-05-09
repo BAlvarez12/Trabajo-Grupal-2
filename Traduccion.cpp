@@ -171,11 +171,11 @@ struct Palabras{ // Estructura de las palabras
 // opcion BORRAR  
 
 void borrar() {
-   		// Abre el archivo en modo de escritura, lo que esencialmente borra todo el contenido
+   		// Abrir el archivo para borrar el contenido 
 		FILE* archivo = fopen(nombre_archivo, "w");
 			if (archivo) {
 				 fclose(archivo);
-				cout << "Archivo borrado exitosamente." << endl;}
+				cout << "Se ha eliminado el archivo " << endl;}
 			else {  cerr << "Error al borrar el archivo." << endl; }
 	
 }
