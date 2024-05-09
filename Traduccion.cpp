@@ -176,7 +176,7 @@ void borrar() {
 			if (archivo) {
 				 fclose(archivo);
 				cout << "Se ha eliminado el archivo " << endl;}
-				// Si no se pudo abrir el archivo entonces mostrar error 
+				// Si no se pudo abrir el archivo entonces mostrar error al borrar 
 			else {  cerr << "No se ha eliminado el archivo" << endl; }
 	
 }
