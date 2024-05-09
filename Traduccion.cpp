@@ -167,3 +167,40 @@ struct Palabras{ // Estructura de las palabras
 							leer();
 	
 	}
+
+// opcion BORRAR  
+
+void borrar() {
+    	// Abre el archivo en modo de lectura y escritura
+    	FILE* archivo = fopen(nombre_archivo, "r+b");
+   	 if (!archivo) {
+       	 cerr << "No se pudo abrir el archivo." << endl;
+       	 return;
+	    }
+	
+	    // variable para almacenar el código que se desea eliminar
+	    int codigo_a_borrar;
+	    cout << "Ingrese el código de la palabra que desea borrar: ";
+	    cin >> codigo_a_borrar;
+	
+	    // leer cada palabra del archivo original
+	    Palabras palabra;
+	    bool encontrado = false;
+	    while (fread(&palabra, sizeof(Palabras), 1, archivo)) {
+	        // Si el código coincide con el código a borrar, no lo escribas en el archivo
+	        if (palabra.codigo != codigo_a_borrar) {
+	            // Escribe la palabra en el archivo temporal
+	            fwrite(&palabra, sizeof(Palabras), 1, archivo);
+	        } else {
+	            encontrado = true;
+	        }
+	    }
+	 // cierre del archivo 
+	    fclose(archivo);
+	
+	    if (encontrado) {
+	        cout << "La palabra fue eliminada" << endl;
+	    } else {
+	        cout << "No se encuentra ninguna palabra con este codigo " << endl;
+	    }
+}
