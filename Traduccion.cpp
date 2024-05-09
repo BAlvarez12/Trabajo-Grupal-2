@@ -176,5 +176,6 @@ void borrar() {
 			if (archivo) {
 				 fclose(archivo);
 				cout << "Archivo borrado exitosamente." << endl;}
+			else { }
 	
 }
