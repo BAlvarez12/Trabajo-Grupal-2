@@ -126,7 +126,7 @@ struct Palabras{
 		    }
 }
 
-	void crear(){  
+	void crear(){  // Creado por GEOVANNY MARTINEZ 
 		FILE* archivo= fopen(nombre_archivo,"a+b");
 		
 			char res;
