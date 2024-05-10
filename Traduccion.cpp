@@ -8,7 +8,7 @@ using namespace std;
 const char *nombre_archivo;
 
 
-struct Palabras{ // Estructura de las palabras
+struct Palabras{
 	int codigo;
 		char nombre[50];
 			char traduccion[50];
@@ -16,7 +16,7 @@ struct Palabras{ // Estructura de las palabras
 	
 	};
 
-// metodo CRUD 
+
 	void leer();
 	void crear();
 	void actualizar ();
@@ -26,7 +26,7 @@ struct Palabras{ // Estructura de las palabras
 	main (){
 			int opcion;
 		do{
-		// switch para poder tener opciones multiples
+		
 	
 	    cout<<"Que accion desea realizar"<<endl;
 	     cout<<"1.Leer Archivo"<<endl;
@@ -67,7 +67,7 @@ struct Palabras{ // Estructura de las palabras
 				
 				string nombre;
 				
-				cout<<"____Actualizar archivo____:"<<endl;
+				cout<<"____Actualizar Archivos_____"<<endl;
 				cout<<"Coloca el nombre exacto del archivo y extencion .dat:  "<<endl;
 				cin>>nombre;
 				nombre_archivo = nombre.c_str();
@@ -91,8 +91,7 @@ struct Palabras{ // Estructura de las palabras
 	        		
 		system("pause");
 	}
-	
-	void leer() {
+		void leer() { 
     
     		system("cls");
     			FILE* archivo = fopen(nombre_archivo, "r");
@@ -105,11 +104,9 @@ struct Palabras{ // Estructura de las palabras
 		        cout<<"id"<<"|"<<"Codigo"<<"|"<<"Nombre"<<"|"<<"Traduccion"<<"|"<<"Funcionalidad"<< endl;
 		        cout<<"________________________________" << endl;
 
-			        char linea[1200]; //tamano para leer una linea de codigo
+			        char linea[1200];
 			        int id = 0;
 			        while (fgets(linea, sizeof(linea), archivo)) {
-        	
-		            // Dividir la lÃ­nea usando el delimitador "|"
 		            stringstream ss(linea);
 		            string token;
 		            int contador =0;
@@ -127,9 +124,9 @@ struct Palabras{ // Estructura de las palabras
 		    } else {
 		        cerr << "No se pudo abrir el archivo." << endl;
 		    }
-}	
+}
 
-    void crear(){  
+	void crear(){  
 		FILE* archivo= fopen(nombre_archivo,"a+b");
 		
 			char res;
@@ -167,16 +164,85 @@ struct Palabras{ // Estructura de las palabras
 							leer();
 	
 	}
+	void actualizar() { 
+			    leer();
+			    FILE* archivo = fopen(nombre_archivo, "r+b");
+			    if (!archivo) {
+			        cerr<<"No se pudo abrir el archivo"<<endl;
+			        return;
+    }
 
-// opcion BORRAR  
+		    Palabras palabra;
+		    int id;
+		    char res;
+		    do {
+		        cout<<"Ingrese el ID que desea modificar: ";
+		        cin>>id;
 
-void borrar() {
-   		// Abrir el archivo para borrar el contenido 
-		FILE* archivo = fopen(nombre_archivo, "w");
-			if (archivo) {
-				 fclose(archivo);
-				cout << "Se ha eliminado el archivo " << endl;}
-				// Si no se pudo abrir el archivo entonces mostrar error al borrar 
-			else {  cerr << "No se ha eliminado el archivo" << endl; }
-	
+      
+	        fseek(archivo, id*sizeof(Palabras),SEEK_SET);
+	        fread(&palabra, sizeof(Palabras),1,archivo);
+	        cout<<"ID: "<<id<<", Codigo: "<<palabra.codigo<<", Nombre: "<<palabra.nombre<<", Traducción: "<<palabra.traduccion<<", Funcionalidad: "<<palabra.funcionalidad<<endl;
+
+        
+	        cout<<"Ingrese nuevo codigo: ";
+	        cin>>palabra.codigo;
+		        cout<<"Ingrese nuevo nombre: ";
+		        cin.ignore();
+			        cin.getline(palabra.nombre, 50);
+			        cout<<"Ingrese nueva traduccion: ";
+				        cin.getline(palabra.traduccion, 50);
+				        cout<<"Ingrese nueva funcionalidad: ";
+	       					 cin.getline(palabra.funcionalidad, 1000);
+		        stringstream linea;
+		        linea<<palabra.codigo<<"|"<<palabra.nombre<<"|"<<palabra.traduccion<<"|"<<palabra.funcionalidad<<"|";
+
+		     
+		        string lineaStr = linea.str();
+		        int longitudLinea = lineaStr.length();
+
+		      
+		        if(longitudLinea<1200){
+		            linea<<string(1200 -longitudLinea, ' '); 
+		        }
+
+       
+		        fseek(archivo, id*1200,SEEK_SET); 
+		        fwrite(linea.str().c_str(),sizeof(char),1200,archivo); 
+		
+		        cout<<"Desea modificar otro registro (S/N): ";
+		        cin>>res;
+		    } while (res =='s'||res=='S');
+
+		    fclose(archivo);
+		    leer(); 
 }
+
+	void borrar(){
+			leer();
+			const char * nombre_archivo_temp = "archivo_temp.dat";
+			FILE* archivo= fopen(nombre_archivo,"rb");
+			FILE* archivo_temp= fopen(nombre_archivo_temp,"w+b");
+			Palabras palabra;
+				int id=0,id_n=0;
+				cout<<"Ingrese el ID que desea borar:";
+				cin>>id;
+				while(fread(&palabra,sizeof(Palabras),1,archivo)){
+					if(id_n!= id){
+						fwrite(&palabra,sizeof(Palabras),1,archivo_temp);
+					}
+					id_n++;
+				}
+		
+				fclose(archivo);
+					fclose(archivo_temp);
+						archivo_temp= fopen(nombre_archivo_temp,"rb");
+							archivo= fopen(nombre_archivo,"wb");
+			   					 while(fread(&palabra,sizeof(Palabras),1,archivo_temp)){
+			    					fwrite(&palabra,sizeof(Palabras),1,archivo);
+			}
+				fclose(archivo);
+					fclose(archivo_temp);
+						leer();
+			}
+
