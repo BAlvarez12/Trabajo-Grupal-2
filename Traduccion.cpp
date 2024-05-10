@@ -91,7 +91,7 @@ struct Palabras{
 	        		
 		system("pause");
 	}
-		void leer() { 
+		void leer() { // Creado por GEOVANNY MARTINEZ 
     
     		system("cls");
     			FILE* archivo = fopen(nombre_archivo, "r");
@@ -126,7 +126,7 @@ struct Palabras{
 		    }
 }
 
-	void crear(){  // Creado por GEOVANNY MARTINEZ 
+	void crear(){  // Creado por CARLOS CU
 		FILE* archivo= fopen(nombre_archivo,"a+b");
 		
 			char res;
@@ -164,7 +164,7 @@ struct Palabras{
 							leer();
 	
 	}
-	void actualizar() { // Creado por CARLOS CU
+	void actualizar() { // Creado por DARY PEREZ
 			    leer();
 			    FILE* archivo = fopen(nombre_archivo, "r+b");
 			    if (!archivo) {
@@ -218,7 +218,7 @@ struct Palabras{
 		    leer(); 
 }
 
-	void borrar(){// Creado por DARY PEREZ
+	void borrar(){
 			leer();
 			const char * nombre_archivo_temp = "archivo_temp.dat";
 			FILE* archivo= fopen(nombre_archivo,"rb");
