@@ -164,7 +164,7 @@ struct Palabras{
 							leer();
 	
 	}
-	void actualizar() { // Creado por DARY PEREZ
+	void actualizar() { // Creado por CRISTIAN BARILLAS
 			    leer();
 			    FILE* archivo = fopen(nombre_archivo, "r+b");
 			    if (!archivo) {
@@ -218,7 +218,7 @@ struct Palabras{
 		    leer(); 
 }
 
-	void borrar(){
+	void borrar(){ // Creado por DARY PEREZ
 			leer();
 			const char * nombre_archivo_temp = "archivo_temp.dat";
 			FILE* archivo= fopen(nombre_archivo,"rb");
