@@ -164,7 +164,7 @@ struct Palabras{
 							leer();
 	
 	}
-	void actualizar() { 
+	void actualizar() { // Creado por CARLOS CU
 			    leer();
 			    FILE* archivo = fopen(nombre_archivo, "r+b");
 			    if (!archivo) {
