@@ -1,3 +1,4 @@
+// Creado por Bryann Alvarez
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -89,7 +90,7 @@ struct Palabras{
 	    }
 	}while (opcion != 5);
 	        		
-		system("pause");
+		system("pause"); // Creado por Bryann Alvarez
 	}
 		void leer() { // Creado por GEOVANNY MARTINEZ 
     
