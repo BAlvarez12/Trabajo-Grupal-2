@@ -22,6 +22,7 @@ using namespace std;
                 traducciones[palabra]=traduccion;
             }
         }
+    
         }else{
         cerr<<"No se pudo abrir el archivo"<<endl;
     	}
