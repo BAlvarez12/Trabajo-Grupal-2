@@ -1,5 +1,9 @@
 Dary: Crear el void de borrar 
 
+Geovanny Martinez: Crear void leer
+
+Carlos CU: Crear Void Borrar
+
 Cristian: Crear el void de Actualizar
 
 
