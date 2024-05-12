@@ -29,7 +29,6 @@ using namespace std;
   		 return traducciones;
 		}
 		
-		
 		string tcodigo(const string&codigo,const unordered_map<string,string>&traducciones){
    			string codigo_traducido;
     			string palabra;
@@ -48,4 +47,13 @@ using namespace std;
         	fin=codigo.find_first_of(" \n\t.,;:?!", inicio);
     	}
     	
+    	palabra=codigo.substr(inicio);
+    		auto iterador=traducciones.find(palabra);
+    			if (iterador!=traducciones.end()){
+        			codigo_traducido+=iterador->second;
+    		}else{
+        codigo_traducido += palabra;
+    	}
+   		 return codigo_traducido;
+		}
 
