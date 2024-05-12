@@ -24,7 +24,7 @@ using namespace std;
         }
         archivo.close();
         }else{
-        cerr<<"No se pudo abrir el archivo"<<endl;
+        cerr<<"No se pudo abrir el archivo"<<endl; 
     	}
   		 return traducciones;
 		}
