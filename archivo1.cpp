@@ -5,7 +5,7 @@
 
 using namespace std;
 
-	unordered_map<string,string>traduccion(const string&archivo_){
+	unordered_map<string,string>traduccion(const string&&archivo_){
     	unordered_map<string,string>traducciones;
     		ifstream archivo(archivo_);
 
