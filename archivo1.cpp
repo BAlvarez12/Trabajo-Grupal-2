@@ -20,7 +20,7 @@ using namespace std;
                 string palabra=linea.substr(pos_pipe1+1,pos_pipe2-pos_pipe1-1);
                 string traduccion=linea.substr(pos_pipe2+1,pos_pipe3-pos_pipe2-1);
                 traducciones[palabra]=traduccion;
-            }
+            } 
         }
     
         }else{
