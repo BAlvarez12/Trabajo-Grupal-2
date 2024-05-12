@@ -7,7 +7,7 @@ using namespace std;
 
 	unordered_map<string,string>traduccion(const string&&archivo_){
     	unordered_map<string,string>traducciones;
-    		ifstream archivo(archivo);
+    		ifstream archivo(archivo_);
 
     if (archivo.is_open()){
         string linea;
