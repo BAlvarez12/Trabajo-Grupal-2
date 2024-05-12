@@ -158,7 +158,7 @@ struct Palabras{
 	
 	
 	
-	void borrar(){ // Creado por DARY PEREZ
+	void borrar(){ //Creado por DARY PEREZ
 			
 		    system("cls");
 			leer();
