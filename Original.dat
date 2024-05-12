@@ -1,0 +1,63 @@
+0|asm|ensamble |ofrece la posibilidad de incrustar codigo fuente en lenguaje ensamblador dentro de un programa cpp
+1|auto|automatico|es una forma sencilla de declarar una variable que tiene un tipo complicado 
+2|bool|booleano|representa un valor verdadero o falso 
+3|break|corte|permite terminar y salir de un bucle do for o while o un mandato switch desde cualquier punto distinto del din logico
+4|case|caso|selecciona una entre un conjunto de expresiones a evaluar y devuelve el valor de retorno de la expresion seleccionada como su valor
+5|catch|capturar|se emplea para registrar errores y realizar limpiezas especiales antes de que se detenga la ejecucion de un programa 
+6|char|caracter|es un tipo de datos para almacenar texto por defecto en cpp
+7|class|clase|declara un tipo de clase o define un objeto de un tipo de clase 
+8|const|constante|especifica que el valor de una variable es constante e indica al compilador que evite que el programador lo modifique 
+9|const_cast|reparto_constante|es un operador que se utiliza para agregar o eliminar un modificador const o volatile de un tipo 
+10|continue|continuar|interrumpe una iteracion en el bucle si se produce una condicion especifica y continua con la siguiente iteracion en el bucle 
+11|default|por_defecto|indica que la interfaz personalizada o dispinterface definida en una coclase representa la interfaz de programacion predeterminada 
+12|delete|borrar|desasigna memoria para un objeto de clase cpp
+13|do|hacer|ejecuta un elemento statement repetidamente hasta que la condicion de finalizacion o expresion se evalua como cero 
+14|double|doble|define una variable de tipo punto flotante de doble precision 
+15|dynamic_cast|conversion_dinamica |se utiliza para realizar conversiones de tipos de manera dinamica 
+16|else|sino|define el bloque del codigo que se ejecuta si la condicion de un if no es verdadera 
+17|enum|enumeracion|define un tipo de dato enumerado con un conjunto de constantes enteras 
+18|explicit|explicito|se utiliza para especificar que un constructor no puede ser invocado implicitamente para conversiones de tipo
+19|extern|externo|se utiliza para declarar una variable o funcion que se define en otro lugar 
+20|false|falso|representa el valor booleano falso 
+21|float|flotante|define una variable de tipo punto flotante de precision simple
+22|for|para|inicia un bucle for 
+23|friend|amigo|declara una funcion o clase como amiga de otra clase 
+24|goto|ir_a |se utiliza para saltar una etiqueta especificada dentro del mismo bloque de codigos 
+25|if|si|inicia una estructura condicional 
+26|inline|en_linea|se utiliza para sugerir al compilador que realice una expancion in situ de la funcion 
+27|int|entero|define una variable de tipo entero 
+28|long|largo|define una variable de tipo entero largo 
+29|mutable|mutable|se utiliza para permitir que un miembro constante pueda ser modificado
+30|namespace|espacio_de_nombres|se utiliza para agrupar entidades relacionadas y evitar colisiones de nombres
+31|new|nuevo|se utiliza para asignar memoria dinamicamente 
+32|operator|operador|Se utiliza para sobrecargar operadores 
+33|private|privado|Especifica que los miembros de una clase solo son accesibles desde dentro de la propia clase|  
+34|protected|protegido|especifica que los miembros de una clase son accesibles desde dentro de la propia clase y sus clases derivadas
+35|public|publico|especifica que los miembros de una clase son accesibles desde cualquier parte del programa 
+36|register|registro|se utiliza para sugerir al compilador que almacene la variable en un registro del procesador 
+37|reinterpret_cast|conversi n reinterpretada|Se utiliza para realizar conversiones de tipos reinterpretables.
+38|return|devolver|Retorna un valor de una funcion
+39|short|corto|Define una variable de tipo entero corto
+40|signed|firmado|Define un tipo de dato entero con signo
+41|sizeof|tamanio_de|Retorna el tamanio en bytes de un tipo o una variable 
+42|static|estatico|Especifica que una variable o funcion es estatica lo que significa que mantiene su valor o alcance durante toda la ejecucion del programa 
+43|static_cast|conversion_estatica|Se utiliza para realizar conversiones de tipos estaticas
+44|struct|estructura|Define una estructura similar a una clase pero con miembros por defecto publicos 
+45|switch|interruptor| Inicia una estructura de seleccion multiple
+46|template|plantilla|Se utiliza para definir plantillas de funcion o clase
+47|this|esto|puntero implicito a la instancia de la clase actual 
+48|throw|lanzar|lanza una excepcion 
+49|true|verdadero|Representa el valor booleano verdadero
+50|try|intentar|Inicia un bloque de codigo donde se manejan excepciones
+51|typedef|tipo_definido|Se utiliza para crear alias de tipos de datos existentes
+52|typeid|tipo_de_identificacion|Retorna una referencia al objeto type_info que representa el tipo del operando
+53|typename|nombre_de_tipo| Indica que un identificador en una plantilla es un nombre de tipo
+54|union|union|Define una estructura que permite almacenar diferentes tipos de datos en la misma ubicacion de memoria
+55|unsigned|no_firmado|Define un tipo de dato entero sin signo
+56|using|usando|Se utiliza para crear alias de nombres de espacio de nombres o para importar nombres especificos en un ambito
+57|virtual|virtual|Se utiliza para especificar que una funcion puede ser sobrescrita en clases derivadas
+58|void|vacio|define un tipo de dato sin valor 
+59|volatile|volatil|Indica que una variable puede ser modificada en cualquier momento por un proceso externo
+60|while|mientras|inicia un bucle while
+61|cout|salida_de_datos|Se utiliza para mostrar datos en la salida estandar o en consola
+62|cin|entrada_de_datos|Se utiliza para leer datos desde la entrada estandar generalmente el teclado                                                                                    
