@@ -28,3 +28,32 @@ using namespace std;
     	}
   		 return traducciones;
 		}
+		
+		string tcodigo(const string&codigo,const unordered_map<string,string>&traducciones){
+   			string codigo_traducido;
+    			string palabra;
+    				size_t inicio=0;
+    					size_t fin=codigo.find_first_of(" \n\t.,;:?!", inicio);
+
+    	while(fin!=string::npos){
+        	palabra=codigo.substr(inicio,fin-inicio);
+        		auto iterador=traducciones.find(palabra);
+        			if (iterador!=traducciones.end()){
+            			codigo_traducido+=iterador->second+" ";
+       		}else{
+            codigo_traducido+=palabra+" ";
+        	}
+        inicio=fin+1;
+        	fin=codigo.find_first_of(" \n\t.,;:?!", inicio);
+    	}
+    	
+    	palabra=codigo.substr(inicio);
+    		auto iterador=traducciones.find(palabra);
+    			if (iterador!=traducciones.end()){
+        			codigo_traducido+=iterador->second;
+    		}else{
+        codigo_traducido += palabra;
+    	}
+   		 return codigo_traducido;
+		}
+
