@@ -28,3 +28,62 @@ typename, union, unsigned, using, virtual, void, volatile, while
 
 3. El programa me debe permitir hacer un CRUD (Crear, Leer, Actualizar
 y Borrar) del listado de palabras que estoy elaborando en el archivo.
+
+4.Crear un programa que me permita ingresar texto multilíneas y me
+permita traducir una porción de código escrito en c++ , tomando como
+base las palabras que definimos en la Fase I, con la salvedad que las llaves
+{} serán tomadas como inicio y fin concatenadas con el nombre de su
+respectiva estructura de control, a excepción de que si fuera un método
+y/o función en ese caso no se traducirá las llaves
+
+
+EJEMPLO
+
+
+nt main(){
+
+string continuar;
+
+cout<<"Desea continuar si/no :";
+
+cin>>continuar;
+
+if (continuar=="si"){
+
+cout<<"Gracias.."<<endl;
+
+}else{
+
+exit(1);
+
+}
+
+return 0;
+
+}
+
+Traducir
+
+entero principal (){
+
+cadena continuar;
+
+cout<<"Desea continuar si/no :";
+
+cin>>continuar;
+
+si (continuar=="si") inicio si
+
+cout<<"Gracias.."<<finalizar;
+
+fin si
+
+entonces inicio entonces
+
+salir(1);
+
+fin entonces
+
+retorno 0;
+
+}
